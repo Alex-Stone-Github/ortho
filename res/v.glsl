@@ -1,8 +1,10 @@
 #version 330 core
 
-in vec3 position;
+layout (location = 0) in vec3 position;
+
+uniform mat3 transform;
 
 void main() {
-    gl_Position = vec4(position, 1.0);
+    gl_Position = vec4(transform * position, 1.0);
 }
 
